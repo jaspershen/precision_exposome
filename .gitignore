@@ -39,3 +39,10 @@ vignettes/*.pdf
 .Renviron
 
 manuscript
+
+data
+data_20200302
+data_20200511
+data_analysis
+rt_prediction
+summary
