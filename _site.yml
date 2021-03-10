@@ -1,8 +1,8 @@
-name: "precision-website"
-title: "My Website"
+name: "precision_exposome"
+title: "precision_exposome"
 description: |
-  My Website
-output_dir: "_site"
+  precision_exposome
+output_dir: "docs"
 navbar:
   right:
     - text: "Home"
