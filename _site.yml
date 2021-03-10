@@ -1,5 +1,5 @@
-name: "precision_exposome"
-title: "precision_exposome"
+name: "Precision exposome"
+title: "Precision exposome"
 description: |
   precision_exposome
 output_dir: "docs"
