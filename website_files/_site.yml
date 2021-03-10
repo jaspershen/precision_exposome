@@ -1,0 +1,24 @@
+name: "Precision exposome"
+title: "Precision exposome"
+description: |
+  precision_exposome
+output_dir: "docs"
+navbar:
+  search: true
+  right:
+    - icon: fab fa-github
+      href: https://github.com/jaspershen/precision_exposome
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "About"
+      href: about.html
+    - text: "Code for figures"
+      menu:
+        - text: "Figure 1"
+          href: figure1.html
+        - text: "Figure 2"
+          href: figure2.html
+        - text: "Figure 3"
+          href: figure3.html
+output: distill::distill_article

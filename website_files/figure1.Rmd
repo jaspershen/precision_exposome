@@ -1,0 +1,27 @@
+---
+title: "Code for figure 1"
+description: |
+  Code for figure 1.
+author: 
+  - name: Peng Gao
+    affiliation: Stanford School of Medicine
+  - name: Xiaotao Shen
+    url: https://www.shenxt.info/
+    affiliation: Stanford School of Medicine
+date: "`r Sys.Date()`"
+site: distill::distill_website
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+# Learn more about creating websites with Distill at:
+# https://rstudio.github.io/distill/website.html
+
+# Learn more about publishing to GitHub Pages at:
+# https://rstudio.github.io/distill/publish_website.html#github-pages
+
+```
+
+
+Current environmental health studies mainly focus on limited stressors and populations, which can not address the complex and personal nature of exposures. Here we longitudinally profiled personal exposome and internal multi-omics to investigate how the exposome shaped an individual’s phenome chronically for the first time. Thousands of chemical and biological substances were identified in the personal exposome cloud. We performed correlational analyses within the exposome and inter -omics analyses between the exposome and gut microbiome, metabolome, and proteome, respectively. Furthermore, the exposome and multi-omics correlations were cross-validated using clinical test results. Our results showed agrochemicals and fungi predominated in the highly diverse and dynamic exposome, and the individual’s immune system, kidneys, and liver played essential roles in response to the personal exposome. Overall, our findings demonstrated that the exposome interacts with internal multi-omics dynamically and could impact one’s health status.

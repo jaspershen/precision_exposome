@@ -1,0 +1,18 @@
+---
+title: "About this project"
+description: |
+  Some additional details about the website
+author: 
+  - name: Peng Gao
+    affiliation: Stanford School of Medicine
+  - name: Xiaotao Shen
+    url: https://www.shenxt.info/
+    affiliation: Stanford School of Medicine
+date: "`r Sys.Date()`"
+site: distill::distill_website
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
