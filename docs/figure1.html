@@ -92,8 +92,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2021-03-09"/>
-  <meta property="article:created" itemprop="dateCreated" content="2021-03-09"/>
+  <meta property="article:published" itemprop="datePublished" content="2021-03-10"/>
+  <meta property="article:created" itemprop="dateCreated" content="2021-03-10"/>
   <meta name="article:author" content="Peng Gao"/>
   <meta name="article:author" content="Xiaotao Shen"/>
 
@@ -113,7 +113,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","site"]}},"value":[{"type":"character","attributes":{},"value":["Code for figure 1"]},{"type":"character","attributes":{},"value":["Code for figure 1.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","affiliation"]}},"value":[{"type":"character","attributes":{},"value":["Peng Gao"]},{"type":"character","attributes":{},"value":["Stanford School of Medicine"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation"]}},"value":[{"type":"character","attributes":{},"value":["Xiaotao Shen"]},{"type":"character","attributes":{},"value":["https://www.shenxt.info/"]},{"type":"character","attributes":{},"value":["Stanford School of Medicine"]}]}]},{"type":"character","attributes":{},"value":["2021-03-09"]},{"type":"character","attributes":{},"value":["distill::distill_website"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","site"]}},"value":[{"type":"character","attributes":{},"value":["Code for figure 1"]},{"type":"character","attributes":{},"value":["Code for figure 1.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","affiliation"]}},"value":[{"type":"character","attributes":{},"value":["Peng Gao"]},{"type":"character","attributes":{},"value":["Stanford School of Medicine"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation"]}},"value":[{"type":"character","attributes":{},"value":["Xiaotao Shen"]},{"type":"character","attributes":{},"value":["https://www.shenxt.info/"]},{"type":"character","attributes":{},"value":["Stanford School of Medicine"]}]}]},{"type":"character","attributes":{},"value":["2021-03-10"]},{"type":"character","attributes":{},"value":["distill::distill_website"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2058,7 +2058,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Code for figure 1","description":"Code for figure 1.","authors":[{"author":"Peng Gao","authorURL":"#","affiliation":"Stanford School of Medicine","affiliationURL":"#","orcidID":""},{"author":"Xiaotao Shen","authorURL":"https://www.shenxt.info/","affiliation":"Stanford School of Medicine","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-03-09T00:00:00.000+00:00","citationText":"Gao & Shen, 2021"}
+{"title":"Code for figure 1","description":"Code for figure 1.","authors":[{"author":"Peng Gao","authorURL":"#","affiliation":"Stanford School of Medicine","affiliationURL":"#","orcidID":""},{"author":"Xiaotao Shen","authorURL":"https://www.shenxt.info/","affiliation":"Stanford School of Medicine","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-03-10T00:00:00.000+00:00","citationText":"Gao & Shen, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2076,6 +2076,7 @@ Code for figures
 <span class="down-arrow">&#x25BE;</span>
 </button>
 <div class="nav-dropdown-content">
+<a href="download_project.html">Download all the data for this project</a>
 <a href="figure1.html">Figure 1</a>
 <a href="figure2.html">Figure 2</a>
 <a href="figure3.html">Figure 3</a>
@@ -2107,12 +2108,416 @@ Code for figures
   
 ,   Xiaotao Shen <a href="https://www.shenxt.info/" class="uri">https://www.shenxt.info/</a> (Stanford School of Medicine)
   
-<br/>2021-03-09
+<br/>2021-03-10
 </div>
 
 <div class="d-article">
 <p>Current environmental health studies mainly focus on limited stressors and populations, which can not address the complex and personal nature of exposures. Here we longitudinally profiled personal exposome and internal multi-omics to investigate how the exposome shaped an individual’s phenome chronically for the first time. Thousands of chemical and biological substances were identified in the personal exposome cloud. We performed correlational analyses within the exposome and inter -omics analyses between the exposome and gut microbiome, metabolome, and proteome, respectively. Furthermore, the exposome and multi-omics correlations were cross-validated using clinical test results. Our results showed agrochemicals and fungi predominated in the highly diverse and dynamic exposome, and the individual’s immune system, kidneys, and liver played essential roles in response to the personal exposome. Overall, our findings demonstrated that the exposome interacts with internal multi-omics dynamically and could impact one’s health status.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<h2 id="load-libraries"><strong>Load libraries</strong></h2>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/jaspershen/metPath'>tinyTools</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/jokergoo/circlize'>circlize</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/jokergoo/ComplexHeatmap'>ComplexHeatmap</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://patchwork.data-imaginist.com'>patchwork</a></span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<h2 id="set-work-directory"><strong>Set work directory</strong></h2>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>tinyTools</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/tinyTools/man/setwd_project.html'>setwd_project</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>The project name is: precision_exposome.Rproj 
+The project wd is: /Users/shenxt/projects/Peng/precision_exposome </code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/getwd.html'>getwd</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] &quot;/Users/shenxt/projects/Peng/precision_exposome&quot;</code></pre>
+</div>
+<h2 id="figure-1b"><strong>Figure 1b</strong></h2>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># load data</span>
+<span class='co'>##exposome chemical</span>
+<span class='fu'><a href='https://rdrr.io/r/base/load.html'>load</a></span><span class='op'>(</span><span class='st'>"data_20200511/exposome/sample_info"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/load.html'>load</a></span><span class='op'>(</span><span class='st'>"data_20200511/exposome/expression_data"</span><span class='op'>)</span>
+
+<span class='va'>exposomeChemical_sample_info</span> <span class='op'>&lt;-</span> <span class='va'>sample_info</span>
+<span class='va'>exposomeChemical_expression_data</span> <span class='op'>&lt;-</span> <span class='va'>expression_data</span>
+
+<span class='va'>exposomeChemical_expression_data</span> <span class='op'>&lt;-</span>
+  <span class='va'>exposomeChemical_expression_data</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/t.html'>t</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>rownames_to_column</span><span class='op'>(</span>var <span class='op'>=</span> <span class='st'>"Sample_ID"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>Sample_ID <span class='op'>=</span> <span class='fu'>stringr</span><span class='fu'>::</span><span class='fu'><a href='https://stringr.tidyverse.org/reference/str_replace.html'>str_replace</a></span><span class='op'>(</span><span class='va'>Sample_ID</span>, <span class='st'>"_[0-9]{1,2}"</span>, <span class='st'>""</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>plyr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/plyr/man/dlply.html'>dlply</a></span><span class='op'>(</span>.variables <span class='op'>=</span> <span class='st'>"Sample_ID"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span><span class='op'>(</span><span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>{</span>
+    <span class='fu'><a href='https://rdrr.io/r/base/apply.html'>apply</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>[</span>, <span class='op'>-</span><span class='fl'>1</span><span class='op'>]</span>, <span class='fl'>2</span>, <span class='va'>mean</span><span class='op'>)</span>
+  <span class='op'>}</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/do.call.html'>do.call</a></span><span class='op'>(</span><span class='va'>rbind</span>, <span class='va'>.</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://rdrr.io/r/base/t.html'>t</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span><span class='op'>(</span><span class='op'>)</span>
+
+<span class='co'>##metabolome</span>
+<span class='fu'><a href='https://rdrr.io/r/base/load.html'>load</a></span><span class='op'>(</span><span class='st'>"data_20200511/metabolome/sample_info"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/load.html'>load</a></span><span class='op'>(</span><span class='st'>"data_20200511/metabolome/expression_data"</span><span class='op'>)</span>
+<span class='va'>metabolome_sample_info</span> <span class='op'>&lt;-</span> <span class='va'>sample_info</span>
+<span class='va'>metabolome_expression_data</span> <span class='op'>&lt;-</span> <span class='va'>expression_data</span>
+
+<span class='co'>##proteome</span>
+<span class='fu'><a href='https://rdrr.io/r/base/load.html'>load</a></span><span class='op'>(</span><span class='st'>"data_20200511/proteome/sample_info"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/load.html'>load</a></span><span class='op'>(</span><span class='st'>"data_20200511/proteome/expression_data"</span><span class='op'>)</span>
+<span class='va'>proteome_sample_info</span> <span class='op'>&lt;-</span> <span class='va'>sample_info</span>
+<span class='va'>proteome_expression_data</span> <span class='op'>&lt;-</span> <span class='va'>expression_data</span>
+
+<span class='co'>##microbiome</span>
+<span class='fu'><a href='https://rdrr.io/r/base/load.html'>load</a></span><span class='op'>(</span><span class='st'>"data_20200511/microbiome/dna_sample_info"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/load.html'>load</a></span><span class='op'>(</span><span class='st'>"data_20200511/microbiome/dna_expression_data"</span><span class='op'>)</span>
+<span class='va'>exposomeBiological_sample_info</span> <span class='op'>&lt;-</span> <span class='va'>dna_sample_info</span>
+<span class='va'>exposomeBiological_expression_data</span> <span class='op'>&lt;-</span> <span class='va'>dna_expression_data</span>
+<span class='va'>exposomeBiological_expression_data</span> <span class='op'>&lt;-</span> 
+  <span class='va'>exposomeBiological_expression_data</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/grep.html'>grep</a></span><span class='op'>(</span><span class='st'>"phylum"</span>, <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>exposomeBiological_expression_data</span><span class='op'>)</span><span class='op'>)</span>,<span class='op'>]</span>
+  
+<span class='co'>##cytokine</span>
+<span class='fu'><a href='https://rdrr.io/r/base/load.html'>load</a></span><span class='op'>(</span><span class='st'>"data_20200511/cytokine/sample_info"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/load.html'>load</a></span><span class='op'>(</span><span class='st'>"data_20200511/cytokine/expression_data"</span><span class='op'>)</span>
+<span class='va'>cytokine_sample_info</span> <span class='op'>&lt;-</span> <span class='va'>sample_info</span>
+<span class='va'>cytokine_expression_data</span> <span class='op'>&lt;-</span> <span class='va'>expression_data</span>
+
+<span class='co'>##gut microbiome</span>
+<span class='fu'><a href='https://rdrr.io/r/base/load.html'>load</a></span><span class='op'>(</span><span class='st'>"data_20200511/gut_microbiome/sample_info"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/load.html'>load</a></span><span class='op'>(</span><span class='st'>"data_20200511/gut_microbiome/expression_data"</span><span class='op'>)</span>
+<span class='va'>gutmicrobiome_sample_info</span> <span class='op'>&lt;-</span> <span class='va'>sample_info</span>
+<span class='va'>gutmicrobiome_expression_data</span> <span class='op'>&lt;-</span> <span class='va'>expression_data</span>
+
+<span class='va'>gutmicrobiome_sample_info</span> <span class='op'>&lt;-</span>
+  <span class='va'>gutmicrobiome_sample_info</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/distinct.html'>distinct</a></span><span class='op'>(</span><span class='va'>CollectionDate</span>, .keep_all <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+
+<span class='va'>gutmicrobiome_expression_data</span> <span class='op'>&lt;-</span>
+  <span class='va'>gutmicrobiome_expression_data</span><span class='op'>[</span>,<span class='va'>gutmicrobiome_sample_info</span><span class='op'>$</span><span class='va'>sample_id</span><span class='op'>]</span>
+
+<span class='co'>##environment</span>
+<span class='fu'><a href='https://rdrr.io/r/base/load.html'>load</a></span><span class='op'>(</span><span class='st'>"data_20200511/environment/sample_info"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/load.html'>load</a></span><span class='op'>(</span><span class='st'>"data_20200511/environment/expression_data"</span><span class='op'>)</span>
+<span class='va'>environment_sample_info</span> <span class='op'>&lt;-</span> <span class='va'>sample_info</span>
+<span class='va'>environment_expression_data</span> <span class='op'>&lt;-</span> <span class='va'>expression_data</span>
+
+<span class='co'>##lab test</span>
+<span class='fu'><a href='https://rdrr.io/r/base/load.html'>load</a></span><span class='op'>(</span><span class='st'>"data_20200511/lab_test/sample_info"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/load.html'>load</a></span><span class='op'>(</span><span class='st'>"data_20200511/lab_test/expression_data"</span><span class='op'>)</span>
+<span class='va'>lab_sample_info</span> <span class='op'>&lt;-</span> <span class='va'>sample_info</span>
+<span class='va'>lab_expression_data</span> <span class='op'>&lt;-</span> <span class='va'>expression_data</span>
+
+<span class='co'>###begin circlize</span>
+
+<span class='co'>##exposome chemical</span>
+<span class='va'>exposomeChemical_sample_info1</span> <span class='op'>&lt;-</span> 
+  <span class='va'>exposomeChemical_sample_info</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span>date <span class='op'>=</span> <span class='va'>start_date</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>date <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/as.Date.html'>as.Date</a></span><span class='op'>(</span><span class='va'>date</span><span class='op'>)</span>,
+                class <span class='op'>=</span> <span class='st'>"exp"</span><span class='op'>)</span>
+
+<span class='co'>####exposome toxins and carcinogens</span>
+<span class='va'>toxin_sample_info1</span> <span class='op'>&lt;-</span> 
+  <span class='va'>metabolome_sample_info</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span>date <span class='op'>=</span> <span class='va'>CollectionDate</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>date <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/as.Date.html'>as.Date</a></span><span class='op'>(</span><span class='va'>date</span><span class='op'>)</span>,
+                class <span class='op'>=</span> <span class='st'>"toxin"</span><span class='op'>)</span>
+
+<span class='co'>##metabolome</span>
+<span class='va'>metabolome_sample_info1</span> <span class='op'>&lt;-</span> 
+  <span class='va'>metabolome_sample_info</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span>date <span class='op'>=</span> <span class='va'>CollectionDate</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>date <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/as.Date.html'>as.Date</a></span><span class='op'>(</span><span class='va'>date</span><span class='op'>)</span>,
+                class <span class='op'>=</span> <span class='st'>"met"</span><span class='op'>)</span>
+
+<span class='co'>##proteome</span>
+<span class='va'>proteome_sample_info1</span> <span class='op'>&lt;-</span> 
+  <span class='va'>proteome_sample_info</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span>date <span class='op'>=</span> <span class='va'>CollectionDate</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>date <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/as.Date.html'>as.Date</a></span><span class='op'>(</span><span class='va'>date</span><span class='op'>)</span>,
+                class <span class='op'>=</span> <span class='st'>"pro"</span><span class='op'>)</span>
+
+<span class='co'>##microbiome</span>
+<span class='va'>exposomeBiological_sample_info1</span> <span class='op'>&lt;-</span> 
+  <span class='va'>exposomeBiological_sample_info</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span>date <span class='op'>=</span> <span class='va'>date.start</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>date <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/as.Date.html'>as.Date</a></span><span class='op'>(</span><span class='va'>date</span><span class='op'>)</span>,
+                class <span class='op'>=</span> <span class='st'>"micro"</span><span class='op'>)</span>
+
+<span class='co'>##cytokine</span>
+<span class='va'>cytokine_sample_info1</span> <span class='op'>&lt;-</span> 
+  <span class='va'>cytokine_sample_info</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span>date <span class='op'>=</span> <span class='va'>CollectionDate</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>date <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/as.Date.html'>as.Date</a></span><span class='op'>(</span><span class='va'>date</span><span class='op'>)</span>,
+                class <span class='op'>=</span> <span class='st'>"cytokine"</span><span class='op'>)</span>
+
+<span class='co'>##gut microbiome</span>
+<span class='va'>gutmicrobiome_sample_info1</span> <span class='op'>&lt;-</span> 
+  <span class='va'>gutmicrobiome_sample_info</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span>date <span class='op'>=</span> <span class='va'>CollectionDate</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>date <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/as.Date.html'>as.Date</a></span><span class='op'>(</span><span class='va'>date</span><span class='op'>)</span>,
+                class <span class='op'>=</span> <span class='st'>"gutmicrobiome"</span><span class='op'>)</span>
+
+<span class='co'>##environment</span>
+<span class='va'>environment_sample_info1</span> <span class='op'>&lt;-</span> 
+  <span class='va'>environment_sample_info</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span>date <span class='op'>=</span> <span class='va'>date.start</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>date <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/as.Date.html'>as.Date</a></span><span class='op'>(</span><span class='va'>date</span><span class='op'>)</span>,
+                class <span class='op'>=</span> <span class='st'>"environment"</span><span class='op'>)</span>
+
+<span class='co'>##lab test</span>
+<span class='va'>lab_sample_info1</span> <span class='op'>&lt;-</span> 
+  <span class='va'>lab_sample_info</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span>date <span class='op'>=</span> <span class='va'>date.start</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>date <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/as.Date.html'>as.Date</a></span><span class='op'>(</span><span class='va'>date</span><span class='op'>)</span>,
+                class <span class='op'>=</span> <span class='st'>"lab"</span><span class='op'>)</span>
+
+<span class='va'>all_date</span> <span class='op'>&lt;-</span> 
+  <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>date <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>
+    <span class='va'>exposomeChemical_sample_info1</span><span class='op'>$</span><span class='va'>date</span>,
+    <span class='va'>metabolome_sample_info1</span><span class='op'>$</span><span class='va'>date</span>,
+    <span class='va'>toxin_sample_info1</span><span class='op'>$</span><span class='va'>date</span>,
+    <span class='va'>proteome_sample_info1</span><span class='op'>$</span><span class='va'>date</span>,
+    <span class='va'>exposomeBiological_sample_info1</span><span class='op'>$</span><span class='va'>date</span>,
+    <span class='va'>cytokine_sample_info1</span><span class='op'>$</span><span class='va'>date</span>,
+    <span class='va'>gutmicrobiome_sample_info1</span><span class='op'>$</span><span class='va'>date</span>,
+    <span class='va'>environment_sample_info1</span><span class='op'>$</span><span class='va'>date</span>,
+    <span class='va'>lab_sample_info1</span><span class='op'>$</span><span class='va'>date</span>
+  <span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>date</span> <span class='op'>&gt;=</span> <span class='st'>"2016-01-12"</span> <span class='op'>&amp;</span> <span class='va'>date</span> <span class='op'>&lt;=</span> <span class='st'>"2016-03-03"</span><span class='op'>)</span>
+  
+<span class='va'>exposomeChemical_sample_info1</span> <span class='op'>&lt;-</span>
+  <span class='va'>all_date</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate-joins.html'>left_join</a></span><span class='op'>(</span><span class='va'>exposomeChemical_sample_info1</span>, by <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"date"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>value <span class='op'>=</span>
+                  <span class='fu'>case_when</span><span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>class</span><span class='op'>)</span> <span class='op'>~</span> <span class='st'>"Yes"</span>,
+                            <span class='cn'>TRUE</span> <span class='op'>~</span> <span class='st'>"No"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>class <span class='op'>=</span> <span class='va'>class</span><span class='op'>[</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>class</span><span class='op'>)</span><span class='op'>]</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>)</span>
+
+<span class='va'>toxin_sample_info1</span> <span class='op'>&lt;-</span>
+  <span class='va'>all_date</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate-joins.html'>left_join</a></span><span class='op'>(</span><span class='va'>toxin_sample_info1</span>, by <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"date"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>value <span class='op'>=</span> 
+                  <span class='fu'>case_when</span><span class='op'>(</span>
+                    <span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>class</span><span class='op'>)</span> <span class='op'>~</span> <span class='st'>"Yes"</span>,
+                    <span class='cn'>TRUE</span> <span class='op'>~</span> <span class='st'>"No"</span>
+                  <span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>class <span class='op'>=</span> <span class='va'>class</span><span class='op'>[</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>class</span><span class='op'>)</span><span class='op'>]</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>)</span>
+
+<span class='va'>metabolome_sample_info1</span> <span class='op'>&lt;-</span>
+  <span class='va'>all_date</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate-joins.html'>left_join</a></span><span class='op'>(</span><span class='va'>metabolome_sample_info1</span>, by <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"date"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>value <span class='op'>=</span> 
+                  <span class='fu'>case_when</span><span class='op'>(</span>
+                    <span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>class</span><span class='op'>)</span> <span class='op'>~</span> <span class='st'>"Yes"</span>,
+                    <span class='cn'>TRUE</span> <span class='op'>~</span> <span class='st'>"No"</span>
+                  <span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>class <span class='op'>=</span> <span class='va'>class</span><span class='op'>[</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>class</span><span class='op'>)</span><span class='op'>]</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>)</span>
+
+<span class='va'>proteome_sample_info1</span> <span class='op'>&lt;-</span>
+  <span class='va'>all_date</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate-joins.html'>left_join</a></span><span class='op'>(</span><span class='va'>proteome_sample_info1</span>, by <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"date"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>value <span class='op'>=</span> 
+                  <span class='fu'>case_when</span><span class='op'>(</span>
+                    <span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>class</span><span class='op'>)</span> <span class='op'>~</span> <span class='st'>"Yes"</span>,
+                    <span class='cn'>TRUE</span> <span class='op'>~</span> <span class='st'>"No"</span>
+                  <span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>class <span class='op'>=</span> <span class='va'>class</span><span class='op'>[</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>class</span><span class='op'>)</span><span class='op'>]</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>)</span>
+
+<span class='va'>exposomeBiological_sample_info1</span> <span class='op'>&lt;-</span>
+  <span class='va'>all_date</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate-joins.html'>left_join</a></span><span class='op'>(</span><span class='va'>exposomeBiological_sample_info1</span>, by <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"date"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>value <span class='op'>=</span> 
+                  <span class='fu'>case_when</span><span class='op'>(</span>
+                    <span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>class</span><span class='op'>)</span> <span class='op'>~</span> <span class='st'>"Yes"</span>,
+                    <span class='cn'>TRUE</span> <span class='op'>~</span> <span class='st'>"No"</span>
+                  <span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>class <span class='op'>=</span> <span class='va'>class</span><span class='op'>[</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>class</span><span class='op'>)</span><span class='op'>]</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>)</span>
+
+<span class='va'>cytokine_sample_info1</span> <span class='op'>&lt;-</span>
+  <span class='va'>all_date</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate-joins.html'>left_join</a></span><span class='op'>(</span><span class='va'>cytokine_sample_info1</span>, by <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"date"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>value <span class='op'>=</span> 
+                  <span class='fu'>case_when</span><span class='op'>(</span>
+                    <span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>class</span><span class='op'>)</span> <span class='op'>~</span> <span class='st'>"Yes"</span>,
+                    <span class='cn'>TRUE</span> <span class='op'>~</span> <span class='st'>"No"</span>
+                  <span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>class <span class='op'>=</span> <span class='va'>class</span><span class='op'>[</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>class</span><span class='op'>)</span><span class='op'>]</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>)</span>
+
+<span class='va'>gutmicrobiome_sample_info1</span> <span class='op'>&lt;-</span>
+  <span class='va'>all_date</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate-joins.html'>left_join</a></span><span class='op'>(</span><span class='va'>gutmicrobiome_sample_info1</span>, by <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"date"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>value <span class='op'>=</span> 
+                  <span class='fu'>case_when</span><span class='op'>(</span>
+                    <span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>class</span><span class='op'>)</span> <span class='op'>~</span> <span class='st'>"Yes"</span>,
+                    <span class='cn'>TRUE</span> <span class='op'>~</span> <span class='st'>"No"</span>
+                  <span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>class <span class='op'>=</span> <span class='va'>class</span><span class='op'>[</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>class</span><span class='op'>)</span><span class='op'>]</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>)</span>
+
+<span class='va'>environment_sample_info1</span> <span class='op'>&lt;-</span>
+  <span class='va'>all_date</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate-joins.html'>left_join</a></span><span class='op'>(</span><span class='va'>environment_sample_info1</span>, by <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"date"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>value <span class='op'>=</span> 
+                  <span class='fu'>case_when</span><span class='op'>(</span>
+                    <span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>class</span><span class='op'>)</span> <span class='op'>~</span> <span class='st'>"Yes"</span>,
+                    <span class='cn'>TRUE</span> <span class='op'>~</span> <span class='st'>"No"</span>
+                  <span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>class <span class='op'>=</span> <span class='va'>class</span><span class='op'>[</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>class</span><span class='op'>)</span><span class='op'>]</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>)</span>
+
+<span class='va'>lab_sample_info1</span> <span class='op'>&lt;-</span>
+  <span class='va'>all_date</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate-joins.html'>left_join</a></span><span class='op'>(</span><span class='va'>lab_sample_info1</span>, by <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"date"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>value <span class='op'>=</span> 
+                  <span class='fu'>case_when</span><span class='op'>(</span>
+                    <span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>class</span><span class='op'>)</span> <span class='op'>~</span> <span class='st'>"Yes"</span>,
+                    <span class='cn'>TRUE</span> <span class='op'>~</span> <span class='st'>"No"</span>
+                  <span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>class <span class='op'>=</span> <span class='va'>class</span><span class='op'>[</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>class</span><span class='op'>)</span><span class='op'>]</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>)</span>
+
+<span class='va'>total_sample_info</span> <span class='op'>&lt;-</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>rbind</a></span><span class='op'>(</span>
+    <span class='va'>exposomeChemical_sample_info1</span>,
+    <span class='va'>toxin_sample_info1</span>,
+    <span class='va'>metabolome_sample_info1</span>,
+    <span class='va'>proteome_sample_info1</span>,
+    <span class='va'>exposomeBiological_sample_info1</span>,
+    <span class='va'>cytokine_sample_info1</span>,
+    <span class='va'>gutmicrobiome_sample_info1</span>,
+    <span class='va'>environment_sample_info1</span>,
+    <span class='va'>lab_sample_info1</span>
+  <span class='op'>)</span>
+
+<span class='va'>value</span> <span class='op'>&lt;-</span> 
+  <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Environment"</span> <span class='op'>=</span> <span class='fu'>ggsci</span><span class='fu'>::</span><span class='fu'><a href='https://nanx.me/ggsci/reference/pal_d3.html'>pal_d3</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>(</span><span class='fl'>10</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span>,
+    <span class='st'>"Exposome (chemical)"</span> <span class='op'>=</span> <span class='fu'>ggsci</span><span class='fu'>::</span><span class='fu'><a href='https://nanx.me/ggsci/reference/pal_d3.html'>pal_d3</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>(</span><span class='fl'>10</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>2</span><span class='op'>]</span>,
+    <span class='st'>"Metabolome"</span> <span class='op'>=</span> <span class='fu'>ggsci</span><span class='fu'>::</span><span class='fu'><a href='https://nanx.me/ggsci/reference/pal_d3.html'>pal_d3</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>(</span><span class='fl'>10</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>3</span><span class='op'>]</span>,
+    <span class='st'>"Proteome"</span> <span class='op'>=</span> <span class='fu'>ggsci</span><span class='fu'>::</span><span class='fu'><a href='https://nanx.me/ggsci/reference/pal_d3.html'>pal_d3</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>(</span><span class='fl'>10</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>4</span><span class='op'>]</span>,
+    <span class='st'>"Exposome (biological)"</span> <span class='op'>=</span> <span class='fu'>ggsci</span><span class='fu'>::</span><span class='fu'><a href='https://nanx.me/ggsci/reference/pal_d3.html'>pal_d3</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>(</span><span class='fl'>10</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>5</span><span class='op'>]</span>,
+    <span class='st'>"Gut microbiome"</span> <span class='op'>=</span> <span class='fu'>ggsci</span><span class='fu'>::</span><span class='fu'><a href='https://nanx.me/ggsci/reference/pal_d3.html'>pal_d3</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>(</span><span class='fl'>10</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>6</span><span class='op'>]</span>,
+    <span class='st'>"Blood test"</span> <span class='op'>=</span> <span class='fu'>ggsci</span><span class='fu'>::</span><span class='fu'><a href='https://nanx.me/ggsci/reference/pal_d3.html'>pal_d3</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>(</span><span class='fl'>10</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>7</span><span class='op'>]</span>,
+    <span class='st'>"Cytokine"</span> <span class='op'>=</span> <span class='fu'>ggsci</span><span class='fu'>::</span><span class='fu'><a href='https://nanx.me/ggsci/reference/pal_d3.html'>pal_d3</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>(</span><span class='fl'>10</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>8</span><span class='op'>]</span>,
+    <span class='st'>"Toxins and carcinogens"</span> <span class='op'>=</span> <span class='fu'>ggsci</span><span class='fu'>::</span><span class='fu'><a href='https://nanx.me/ggsci/reference/pal_d3.html'>pal_d3</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>(</span><span class='fl'>10</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>9</span><span class='op'>]</span>
+    <span class='op'>)</span>
+
+<span class='va'>total_sample_info</span> <span class='op'>&lt;-</span> 
+  <span class='va'>total_sample_info</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>date <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/character.html'>as.character</a></span><span class='op'>(</span><span class='va'>date</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>
+    class <span class='op'>=</span> <span class='fu'>case_when</span><span class='op'>(</span>
+      <span class='va'>class</span> <span class='op'>==</span> <span class='st'>"exp"</span> <span class='op'>~</span> <span class='st'>"Exposome (chemical)"</span>,
+      <span class='va'>class</span> <span class='op'>==</span> <span class='st'>"micro"</span> <span class='op'>~</span> <span class='st'>"Exposome (biological)"</span>,
+      <span class='va'>class</span> <span class='op'>==</span> <span class='st'>"met"</span> <span class='op'>~</span> <span class='st'>"Metabolome"</span>,
+      <span class='va'>class</span> <span class='op'>==</span> <span class='st'>"pro"</span> <span class='op'>~</span> <span class='st'>"Proteome"</span>,
+      <span class='va'>class</span> <span class='op'>==</span> <span class='st'>"lab"</span> <span class='op'>~</span> <span class='st'>"Blood test"</span>,
+      <span class='va'>class</span> <span class='op'>==</span> <span class='st'>"cytokine"</span> <span class='op'>~</span> <span class='st'>"Cytokine"</span>,
+      <span class='va'>class</span> <span class='op'>==</span> <span class='st'>"gutmicrobiome"</span> <span class='op'>~</span> <span class='st'>"Gut microbiome"</span>,
+      <span class='va'>class</span> <span class='op'>==</span> <span class='st'>"environment"</span> <span class='op'>~</span> <span class='st'>"Environment"</span>,
+      <span class='va'>class</span> <span class='op'>==</span> <span class='st'>"toxin"</span> <span class='op'>~</span> <span class='st'>"Toxins and carcinogens"</span>
+    <span class='op'>)</span>
+  <span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>class <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>class</span>, levels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rev.html'>rev</a></span><span class='op'>(</span>
+    <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>
+      <span class='st'>"Exposome (chemical)"</span>,
+      <span class='st'>"Exposome (biological)"</span>,
+      <span class='st'>"Environment"</span>,
+      <span class='st'>"Metabolome"</span>,
+      <span class='st'>"Toxins and carcinogens"</span>,
+      <span class='st'>"Proteome"</span>,
+      <span class='st'>"Blood test"</span>,
+      <span class='st'>"Cytokine"</span>,
+      <span class='st'>"Gut microbiome"</span>
+    <span class='op'>)</span>
+  <span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+  
+
+<span class='va'>plot1</span> <span class='op'>&lt;-</span> 
+<span class='va'>total_sample_info</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>class</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_tile</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>class</span>, fill <span class='op'>=</span> <span class='va'>value</span><span class='op'>)</span>, color <span class='op'>=</span> <span class='st'>"black"</span>, show.legend <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_y_discrete</span><span class='op'>(</span>expand <span class='op'>=</span> <span class='fu'>expansion</span><span class='op'>(</span>mult <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>0</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_x_discrete</span><span class='op'>(</span>expand <span class='op'>=</span> <span class='fu'>expansion</span><span class='op'>(</span>mult <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>0</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_fill_manual</span><span class='op'>(</span>values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Yes"</span> <span class='op'>=</span> <span class='st'>"red"</span>, <span class='st'>"No"</span> <span class='op'>=</span> <span class='st'>"white"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>theme_bw</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>labs</span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>""</span>, y <span class='op'>=</span> <span class='st'>""</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>theme</span><span class='op'>(</span>axis.text <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>
+    angle <span class='op'>=</span> <span class='fl'>45</span>,
+    hjust <span class='op'>=</span> <span class='fl'>1</span>,
+    vjust <span class='op'>=</span> <span class='fl'>1</span>
+  <span class='op'>)</span>,
+  axis.ticks.y <span class='op'>=</span> <span class='fu'>element_blank</span><span class='op'>(</span><span class='op'>)</span>,
+  plot.margin <span class='op'>=</span> <span class='fu'>unit</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span><span class='op'>)</span>, <span class='st'>"pt"</span><span class='op'>)</span>,
+  panel.grid.minor <span class='op'>=</span> <span class='fu'>element_blank</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='va'>plot2</span> <span class='op'>&lt;-</span>
+  <span class='va'>total_sample_info</span> <span class='op'>%&gt;%</span> 
+    <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>value</span> <span class='op'>==</span> <span class='st'>"Yes"</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>class</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span><span class='op'>(</span>n <span class='op'>=</span> <span class='fu'>n</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+    <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>ungroup</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>class</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>geom_bar</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>n</span>, y <span class='op'>=</span> <span class='va'>class</span><span class='op'>)</span>, stat <span class='op'>=</span> <span class='st'>"identity"</span>, color <span class='op'>=</span> <span class='st'>"black"</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>scale_x_continuous</span><span class='op'>(</span>expand <span class='op'>=</span> <span class='fu'>expansion</span><span class='op'>(</span>mult <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>0</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>scale_y_discrete</span><span class='op'>(</span>expand <span class='op'>=</span> <span class='fu'>expansion</span><span class='op'>(</span>mult <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>0</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>scale_fill_manual</span><span class='op'>(</span>values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Yes"</span> <span class='op'>=</span> <span class='st'>"red"</span>, <span class='st'>"No"</span> <span class='op'>=</span> <span class='st'>"white"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>theme_classic</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>labs</span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"Sample number"</span>, y <span class='op'>=</span> <span class='st'>""</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>theme</span><span class='op'>(</span>axis.text.x <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>
+      size <span class='op'>=</span> <span class='fl'>12</span>
+    <span class='op'>)</span>,
+    axis.text.y <span class='op'>=</span> <span class='fu'>element_blank</span><span class='op'>(</span><span class='op'>)</span>,
+    axis.title <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>13</span><span class='op'>)</span>,
+    axis.ticks.y <span class='op'>=</span> <span class='fu'>element_blank</span><span class='op'>(</span><span class='op'>)</span>,
+    plot.margin <span class='op'>=</span> <span class='fu'>unit</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span><span class='op'>)</span>, <span class='st'>"pt"</span><span class='op'>)</span>,
+    panel.grid.minor <span class='op'>=</span> <span class='fu'>element_blank</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='va'>plot3</span> <span class='op'>&lt;-</span>
+  <span class='va'>total_sample_info</span>  <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>value</span> <span class='op'>==</span> <span class='st'>"Yes"</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>class</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span><span class='op'>(</span>n <span class='op'>=</span> <span class='fu'>n</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>ungroup</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>n</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_bar</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>n</span>, fill <span class='op'>=</span> <span class='va'>class</span><span class='op'>)</span>, 
+           stat <span class='op'>=</span> <span class='st'>"identity"</span>, color <span class='op'>=</span> <span class='st'>"black"</span>, show.legend <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>guides</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='fu'>guide_legend</span><span class='op'>(</span>nrow <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_x_discrete</span><span class='op'>(</span>expand <span class='op'>=</span> <span class='fu'>expansion</span><span class='op'>(</span>mult <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>0</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_y_continuous</span><span class='op'>(</span>expand <span class='op'>=</span> <span class='fu'>expansion</span><span class='op'>(</span>mult <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>0</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_fill_manual</span><span class='op'>(</span>values <span class='op'>=</span> <span class='va'>value</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>guides</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='fu'>guide_legend</span><span class='op'>(</span>nrow <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>theme_classic</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>labs</span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>""</span>, y <span class='op'>=</span> <span class='st'>"Sample number"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>theme</span><span class='op'>(</span>axis.text.y <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>
+    size <span class='op'>=</span> <span class='fl'>12</span>
+  <span class='op'>)</span>,
+  axis.text.x <span class='op'>=</span> <span class='fu'>element_blank</span><span class='op'>(</span><span class='op'>)</span>,
+  axis.title <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>13</span><span class='op'>)</span>,
+  axis.ticks.x <span class='op'>=</span> <span class='fu'>element_blank</span><span class='op'>(</span><span class='op'>)</span>,
+  plot.margin <span class='op'>=</span> <span class='fu'>unit</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span><span class='op'>)</span>, <span class='st'>"pt"</span><span class='op'>)</span>,
+  panel.grid.minor <span class='op'>=</span> <span class='fu'>element_blank</span><span class='op'>(</span><span class='op'>)</span>,
+  legend.position <span class='op'>=</span> <span class='st'>"top"</span><span class='op'>)</span>
+
+<span class='va'>plot</span> <span class='op'>&lt;-</span>
+  <span class='op'>{</span>
+    <span class='va'>plot3</span> <span class='op'>+</span> <span class='va'>plot2</span> <span class='op'>+</span> <span class='fu'><a href='https://patchwork.data-imaginist.com/reference/plot_layout.html'>plot_layout</a></span><span class='op'>(</span>ncol <span class='op'>=</span> <span class='fl'>2</span>, widths <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>5</span>, <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span>
+  <span class='op'>}</span> <span class='op'>-</span>
+  <span class='op'>{</span>
+    <span class='va'>plot1</span> <span class='op'>+</span> <span class='va'>plot2</span> <span class='op'>+</span> <span class='fu'><a href='https://patchwork.data-imaginist.com/reference/plot_layout.html'>plot_layout</a></span><span class='op'>(</span>ncol <span class='op'>=</span> <span class='fl'>2</span>, widths <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>5</span>, <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span>
+  <span class='op'>}</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://patchwork.data-imaginist.com/reference/plot_layout.html'>plot_layout</a></span><span class='op'>(</span>ncol <span class='op'>=</span> <span class='fl'>1</span>, heights <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>5</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='va'>plot</span>
+</code></pre>
+</div>
+<p><img src="figure1_files/figure-html5/unnamed-chunk-3-1.png" width="624" /></p>
+</div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
