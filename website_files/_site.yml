@@ -1,13 +1,26 @@
 name: "Precision exposome"
 title: "Precision exposome"
+theme: theme.css
 description: |
   precision_exposome
 output_dir: "docs"
+base_url: https://www.shenxt.info/
+repository_url: https://github.com/jaspershen/precision_exposome
+google_analytics: "UA-143314205-1"
+# cookie_consent:
+#   style: simple
+#   type: express
+#   palette: light
+#   lang: en
+#   cookies_policy: url
 navbar:
   search: true
+  source_url: https://github.com/jaspershen/precision_exposome
   right:
     - icon: fab fa-github
       href: https://github.com/jaspershen/precision_exposome
+    - icon: fab fa-twitter
+      href: https://twitter.com/JasperShen1990
   left:
     - text: "Home"
       href: index.html
